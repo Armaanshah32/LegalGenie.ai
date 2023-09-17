@@ -21,6 +21,10 @@ def help():
 @app.route("/send", methods=['POST'])
 def send():
     name = request.form['selectInput']
-    course = request.form['textInput']
-    print(name, course)
-    return redirect("/")
+    length = request.form['textInput']
+    print(name, length)
+    return redirect("/output")
+
+@app.route("/output", methods=['GET'])
+def output():
+    return render_template("output.html")
