@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
+        <title>SIMPLILEGAL</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- style css -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- Responsive-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <!-- fevicon -->
+        <link rel="icon" href="{{ url_for('static', filename='images/fevicon.png') }}" type="image/gif" />
+        <!-- font css -->
+        <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.min.css') }}">
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Poppins&display=swap');
+     .b {
+        
+         font-family: 'Poppins', sans-serif;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         min-height: 100vh;
+       }
+       
+       .container {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100%;
+       }
+       
+       .card {
+        margin-top: 15%;
+         width: 350px;
+         background-color: rgba(255, 255, 255, 0.3);
+         border-radius: 15px;
+         padding: 40px;
+         backdrop-filter: blur(10px);
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+       }
+       
+  
+       form {
+         display: flex;
+         flex-direction: column;
+       }
+       
+       label {
+         color: #fff;
+         margin-bottom: 5px;
+       }
+       
+       input {
+         padding: 10px;
+         margin-bottom: 10px;
+         border: none;
+         border-radius: 5px;
+         background-color: rgba(255, 255, 255, 0.8);
+       }
+       
+       button {
+         padding: 10px;
+         background-color: #fff;
+         color: #498ffc;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+       }
+       
+       button:hover {
+         background-color: #70c1ff;
+       }
+       
+       @media (max-width: 480px) {
+         .card {
+           width: 100%;
+           max-width: 350px;
+         }
+       }
+        </style>
+  
+</head>
+<body>
+    <div class="header_section">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('index') }}" style="color: white;">Legal Genie AI</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('document') }}">Create</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('new') }}">Templates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('help') }}">Expert</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="login_bt">
+                            <ul>
+                                <li><a href="#"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Logged In</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+
+
+
+    <div class="container">
+        <div class="card">
+          <h2>Create Your Own Document</h2>
+          <form id="stepForm" method="post" action="/send">
+            <!-- Step 1: Dropdown Input -->
+            <div id="step1">
+                <div class="form-group">
+                    <label for="selectInput">Select an option:</label>
+                    <select class="form-control" id="selectInput" name="selectInput">
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="button" onclick="showStep(2)">Next</button>
+                </div>
+                
+            </div>
+
+            <!-- Step 2: Text Input (Initially Hidden) -->
+            <div id="step2" style="display: none;">
+                <div class="form-group">
+                    <label for="textInput">Enter some text:</label>
+                    <input type="text" class="form-control" id="textInput" placeholder="Text Input" name="textInput">
+                </div>
+                <button class="btn btn-primary" type="button" onclick="showStep(1)">Previous</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+    <!-- sidebar -->
+    <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+    <script>
+        function showStep(stepNumber) {
+            if (stepNumber === 1) {
+                document.getElementById("step1").style.display = "block";
+                document.getElementById("step2").style.display = "none";
+            } else if (stepNumber === 2) {
+                document.getElementById("step1").style.display = "none";
+                document.getElementById("step2").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
