@@ -1,0 +1,97 @@
+<!DOCTYPE php>
+<php lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Cards</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #051431;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 350px;
+            padding: 10px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            text-align: center;
+            background-color: #F5C735;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1.5rem;
+            color: #555;
+        }
+        .a,b,c,d{
+            font-family: 'Roboto', sans-serif;
+            color: #555;
+        }
+        li{
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            padding: 3%;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <h2>Real Estate Services</h2>
+            <p  class="a">
+                <ul>
+                    <li><a href="resirent.php" id = '9'>Residential Rental Agreement</a></li>
+                    <li><a href="comirent.php" id = '7'>Commercial Rental Agreement</a></li>
+                    <li><a href="resilese.php" id = '15' >Residential Lease Agreement</a></li>
+                    <li><a href="comilese.php" id = '19'>Commercial Lease Agreement</a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="card">
+            <h2>Personal</h2>
+            <p class="b"><ul>
+                <li><a href="will.php" id = '11'>Simple Will</a></li>
+                <li><a href="poa.php" id = '21' >Power of Attorney</a></li>
+                
+            </ul></p>
+        </div>
+        <div class="card">
+            
+            <h2>Business Related Services</h2>
+            <p class="c"><ul>
+                <li><a href="employ.php" id = '13'>Employment Contract</a>
+                <li><a href="nda.php" id = '17'>Non-Disclosure Agreement</a></li>
+                
+            </ul></p>
+        </div>
+        
+    </div>
+</body>
+</php>
